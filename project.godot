@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Background",
 "language": "GDScript",
 "path": "res://scripts/interface/background.gd"
+}, {
+"base": "Node2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scripts/character/character.gd"
+}, {
+"base": "Node",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://scripts/character/stats.gd"
 } ]
 _global_script_class_icons={
-"Background": ""
+"Background": "",
+"Character": "",
+"Stats": ""
 }
 
 [application]
