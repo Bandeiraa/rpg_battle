@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="EnemyTemplate" type="Node2D"]
+
+[node name="Texture" type="Sprite" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="Stats" type="Node" parent="."]
