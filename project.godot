@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "Background",
+"language": "GDScript",
+"path": "res://scripts/interface/background.gd"
+} ]
+_global_script_class_icons={
+"Background": ""
+}
+
 [application]
 
 config/name="Rpg Battle"
