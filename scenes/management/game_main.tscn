@@ -23,6 +23,7 @@ position = Vector2( 140, 280 )
 
 [node name="Position2" type="Node2D" parent="BattleManager/Enemy"]
 position = Vector2( 80, 240 )
+z_index = -1
 
 [node name="Position3" type="Node2D" parent="BattleManager/Enemy"]
 position = Vector2( 80, 320 )
@@ -37,6 +38,7 @@ position = Vector2( 500, 280 )
 
 [node name="Position2" type="Node2D" parent="BattleManager/Ally"]
 position = Vector2( 560, 240 )
+z_index = -1
 
 [node name="Position3" type="Node2D" parent="BattleManager/Ally"]
 position = Vector2( 560, 320 )
