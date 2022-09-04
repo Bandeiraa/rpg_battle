@@ -19,9 +19,6 @@ var info_list: Dictionary = {
 }
 
 func _ready() -> void:
-	current.entity_count = info_list.size()
-	change_entity()
-	
 	for i in info_list.size():
 		turn_container.get_child(i).show()
 		
@@ -31,6 +28,11 @@ func _ready() -> void:
 		button.connect("mouse_entered", self, "mouse_interaction", [button, "entered"])
 		
 		
+func update_entity_info() -> void:
+	current.entity_count = info_list.size()
+	change_entity()
+	
+	
 func change_entity() -> void:
 	current.update_index()
 	current.interpolate_position()
