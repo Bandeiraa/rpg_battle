@@ -6,6 +6,7 @@ enum rect_list {
 	OBJECT
 }
 
+onready var parent: Control = get_parent()
 onready var tween: Tween = get_node("Tween")
 
 var entity_count: int = 0
@@ -53,6 +54,7 @@ func interpolate_position() -> void:
 	
 func on_tween_finished() -> void:
 	update_slot_container()
+	parent.update_visible_entity()
 	
 	
 func update_slot_container() -> void:

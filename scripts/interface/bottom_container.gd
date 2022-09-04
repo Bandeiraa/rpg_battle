@@ -1,8 +1,6 @@
 extends Control
 class_name BottomContainer
 
-signal enemy_turn
-
 onready var current: TextureRect = get_node("Current")
 
 onready var turn_container: HBoxContainer = get_node("TurnContainer")
@@ -31,8 +29,6 @@ func change_entity() -> void:
 	current.update_index()
 	current.interpolate_position()
 	
-	update_visible_entity()
-	
 	
 func update_visible_entity() -> void:
 	var current_dict: Dictionary = info_list[current.current_index]
@@ -43,7 +39,9 @@ func update_visible_entity() -> void:
 		
 	if type == "enemy":
 		action_container.hide()
-		emit_signal("enemy_turn")
+		var attacker_slot = current.get_current_attacker()
+		var attacker = attacker_slot.target
+		attacker.can_attack = true
 		
 		
 func on_button_pressed(button: TextureButton) -> void:
@@ -52,7 +50,6 @@ func on_button_pressed(button: TextureButton) -> void:
 			var attacker_slot = current.get_current_attacker()
 			var attacker = attacker_slot.target
 			attacker.can_attack = true
-			#change_entity()
 			
 		"Defense":
 			pass

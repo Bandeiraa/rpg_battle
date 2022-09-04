@@ -25,6 +25,7 @@ func spawn_ally() -> void:
 		var ally_to_instance = ally_list[randi() % ally_list.size()].instance()
 		ally.get_child(i).add_child(ally_to_instance)
 		info_list.append(ally_to_instance.info_dict)
+		global_data.ally_list.append(ally_to_instance)
 		index += 1
 		
 		
