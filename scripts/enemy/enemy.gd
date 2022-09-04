@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name Enemy
 
 onready var stats: Node = get_node("Stats")
@@ -19,3 +19,14 @@ func _ready() -> void:
 	
 	info_dict["self"] = self
 	info_dict["faceset"] = faceset_path
+	
+	
+func on_mouse_entered() -> void:
+	if global_data.seeking_target:
+		modulate.a = 0.5
+		global_data.target = self
+		
+		
+func on_mouse_exited() -> void:
+	modulate.a = 1.0
+	global_data.target = null

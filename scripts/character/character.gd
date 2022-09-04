@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name Character
 
 onready var stats: Stats = get_node("Stats")
@@ -10,6 +10,7 @@ var info_dict: Dictionary = {
 
 var target = null
 var respective_slot = null
+var can_attack: bool = false
 
 var attack_damage: int
 
@@ -25,6 +26,18 @@ func _ready() -> void:
 	info_dict["faceset"] = faceset_path
 	
 	
+func _process(_delta: float) -> void:
+	if not can_attack:
+		return
+		
+	target = global_data.target
+	global_data.seeking_target = true
+	if Input.is_action_just_pressed("ui_click") and target != null:
+		can_attack = false
+		attack("normal", target)
+		global_data.seeking_target = false
+		
+		
 func update_health(damage: int) -> void:
 	stats.health = clamp(stats.health - damage, 0, stats.max_health)
 	respective_slot.update_health(stats.health)

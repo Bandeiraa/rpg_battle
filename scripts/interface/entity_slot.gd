@@ -6,6 +6,8 @@ onready var mana: TextureProgress = get_node("Mana")
 
 onready var faceset_rect: TextureRect = get_node("Faceset")
 
+var target = null
+
 var faceset: StreamTexture
 var current_hp: int
 var max_hp: int
@@ -27,7 +29,7 @@ func update_slot(slot_info: Dictionary) -> void:
 	current_mp = slot_info["mp"]
 	max_mp = slot_info["max_mp"]
 	
-	var target = slot_info["self"]
+	target = slot_info["self"]
 	target.respective_slot = self
 	
 	init_health_bar()

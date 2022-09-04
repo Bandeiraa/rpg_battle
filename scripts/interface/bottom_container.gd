@@ -49,7 +49,10 @@ func update_visible_entity() -> void:
 func on_button_pressed(button: TextureButton) -> void:
 	match button.name:
 		"Attack":
-			change_entity()
+			var attacker_slot = current.get_current_attacker()
+			var attacker = attacker_slot.target
+			attacker.can_attack = true
+			#change_entity()
 			
 		"Defense":
 			pass
@@ -61,6 +64,11 @@ func on_button_pressed(button: TextureButton) -> void:
 			pass
 			
 			
+func disable_buttons() -> void:
+	for button in action_container.get_children():
+		button.disabled = true
+		
+		
 func mouse_interaction(button: TextureButton, type: String) -> void:
 	match type:
 		"entered":

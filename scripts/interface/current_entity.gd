@@ -60,3 +60,7 @@ func update_slot_container() -> void:
 	var faceset: StreamTexture = slot.faceset
 	
 	slot_container.update_container(hp, mp, faceset)
+	
+	
+func get_current_attacker():
+	return current_rect_position_list[current_index][rect_list.OBJECT]

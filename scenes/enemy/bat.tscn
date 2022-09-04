@@ -84,9 +84,15 @@ tracks/0/keys = {
 }
 
 [node name="Bat" instance=ExtResource( 1 )]
+margin_left = -45.0
+margin_top = -45.0
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 90, 90 )
 faceset_path = "res://assets/enemy/bat/type_1/faceset.png"
 
 [node name="Texture" parent="." index="0"]
+position = Vector2( 45, 45 )
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 4

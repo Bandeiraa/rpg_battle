@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/interface/bottom_container.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
 "class": "Character",
 "language": "GDScript",
 "path": "res://scripts/character/character.gd"
@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/interface/current_entity.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://scripts/enemy/enemy.gd"
@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "GameMain",
 "language": "GDScript",
 "path": "res://scripts/management/game_main.gd"
+}, {
+"base": "Node",
+"class": "GlobalData",
+"language": "GDScript",
+"path": "res://scripts/management/global_data.gd"
 }, {
 "base": "HBoxContainer",
 "class": "SlotContainer",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "EnemyStats": "",
 "EntitySlot": "",
 "GameMain": "",
+"GlobalData": "",
 "SlotContainer": "",
 "Stats": ""
 }
@@ -77,6 +83,10 @@ _global_script_class_icons={
 config/name="Rpg Battle"
 run/main_scene="res://scenes/management/game_main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+global_data="*res://scripts/management/global_data.gd"
 
 [display]
 
@@ -113,6 +123,14 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+ui_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
 }
 
 [physics]
