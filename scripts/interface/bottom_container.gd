@@ -11,9 +11,6 @@ onready var action_container: GridContainer = get_node("ActionContainer")
 var info_list: Dictionary = {}
 
 func _ready() -> void:
-	for i in info_list.size():
-		turn_container.get_child(i).show()
-		
 	for button in action_container.get_children():
 		button.connect("pressed", self, "on_button_pressed", [button])
 		button.connect("mouse_exited", self, "mouse_interaction", [button, "exited"])
@@ -22,8 +19,11 @@ func _ready() -> void:
 		
 func update_entity_info(list: Dictionary) -> void:
 	info_list = list
+	for i in info_list.size():
+		turn_container.get_child(i).show()
+		
 	current.entity_count = info_list.size()
-	change_entity()
+	update_visible_entity()
 	
 	
 func change_entity() -> void:

@@ -1,5 +1,5 @@
 extends Node
-class_name Stats
+class_name EnemyStats
 
 var mana: int = 0
 

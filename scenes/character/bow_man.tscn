@@ -83,6 +83,7 @@ tracks/0/keys = {
 }
 
 [node name="BowMan" instance=ExtResource( 1 )]
+faceset_path = "res://assets/character/bow_man/type_1/faceset.png"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( -18, -44 )
@@ -101,4 +102,5 @@ anims/special = SubResource( 4 )
 [node name="Stats" parent="." index="2"]
 normal_attack_gap = [ 1, 5 ]
 health = 8
+max_mana = 30
 max_health = 15

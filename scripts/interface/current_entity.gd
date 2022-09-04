@@ -4,7 +4,7 @@ class_name CurrentEntity
 onready var tween: Tween = get_node("Tween")
 
 var entity_count: int = 0
-var current_index: int = -1
+var current_index: int = 0
 
 var current_rect_position_list: Array = [
 	Vector2(28, 80),

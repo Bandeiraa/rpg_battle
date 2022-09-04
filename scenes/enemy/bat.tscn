@@ -97,3 +97,10 @@ anims/hit = SubResource( 5 )
 anims/idle = SubResource( 1 )
 anims/normal = SubResource( 3 )
 anims/special = SubResource( 4 )
+
+[node name="Stats" parent="." index="2"]
+normal_attack_gap = [ 1, 5 ]
+special_attack_gap = [ 8, 15 ]
+health = 15
+max_mana = 25
+max_health = 15
