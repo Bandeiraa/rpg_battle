@@ -1,14 +1,53 @@
 extends Control
 class_name BottomContainer
 
+signal enemy_turn
+
 onready var current: TextureRect = get_node("Current")
+
+onready var turn_container: HBoxContainer = get_node("TurnContainer")
 onready var action_container: GridContainer = get_node("ActionContainer")
 
+var info_list: Dictionary = {
+	"0": {
+		"type": "ally"
+	},
+	
+	"1": {
+		"type": "enemy"
+	}
+}
+
 func _ready() -> void:
+	current.entity_count = info_list.size()
+	change_entity()
+	
+	for i in info_list.size():
+		turn_container.get_child(i).show()
+		
 	for button in action_container.get_children():
 		button.connect("pressed", self, "on_button_pressed", [button])
 		button.connect("mouse_exited", self, "mouse_interaction", [button, "exited"])
 		button.connect("mouse_entered", self, "mouse_interaction", [button, "entered"])
+		
+		
+func change_entity() -> void:
+	current.update_index()
+	current.interpolate_position()
+	
+	update_visible_entity()
+	
+	
+func update_visible_entity() -> void:
+	var current_dict: Dictionary = info_list[str(current.current_index)]
+	var type: String = current_dict["type"]
+	
+	if type == "ally":
+		action_container.show()
+		
+	if type == "enemy":
+		action_container.hide()
+		emit_signal("enemy_turn")
 		
 		
 func on_button_pressed(button: TextureButton) -> void:

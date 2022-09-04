@@ -3,8 +3,8 @@ class_name CurrentEntity
 
 onready var tween: Tween = get_node("Tween")
 
-var entity_count: int = 2
-var current_index: int = 0
+var entity_count: int = 0
+var current_index: int = -1
 
 var current_rect_position_list: Array = [
 	Vector2(28, 80),
@@ -19,17 +19,13 @@ func _ready() -> void:
 	rect_position = current_rect_position_list[current_index]
 	
 	
-#Debugger
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_right"):
-		current_index += 1
-		interpolate_position()
-		
-		
-func interpolate_position() -> void:
+func update_index() -> void:
+	current_index += 1
 	if current_index > entity_count - 1:
 		current_index = 0
 		
+		
+func interpolate_position() -> void:
 	var _move: bool = tween.interpolate_property(
 		self,
 		"rect_position",

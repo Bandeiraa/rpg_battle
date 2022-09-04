@@ -56,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 
-[node name="BottomContainer" type="Control" parent="."]
+[node name="BottomContainer" type="Control" parent="." groups=["bottom_container"]]
 margin_top = 365.0
 margin_right = 640.0
 margin_bottom = 480.0
@@ -72,6 +72,7 @@ margin_right = 200.0
 margin_bottom = 19.0
 
 [node name="Slot1" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_right = 30.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 30, 38 )
@@ -111,6 +112,7 @@ value = 100.0
 texture_progress = ExtResource( 5 )
 
 [node name="Slot2" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_left = 34.0
 margin_right = 64.0
 margin_bottom = 38.0
@@ -151,6 +153,7 @@ value = 100.0
 texture_progress = ExtResource( 5 )
 
 [node name="Slot3" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_left = 68.0
 margin_right = 98.0
 margin_bottom = 38.0
@@ -191,6 +194,7 @@ value = 100.0
 texture_progress = ExtResource( 5 )
 
 [node name="Slot4" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_left = 102.0
 margin_right = 132.0
 margin_bottom = 38.0
@@ -231,6 +235,7 @@ value = 100.0
 texture_progress = ExtResource( 5 )
 
 [node name="Slot5" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_left = 136.0
 margin_right = 166.0
 margin_bottom = 38.0
@@ -271,6 +276,7 @@ value = 100.0
 texture_progress = ExtResource( 5 )
 
 [node name="Slot6" type="Control" parent="BottomContainer/TurnContainer"]
+visible = false
 margin_left = 170.0
 margin_right = 200.0
 margin_bottom = 38.0
@@ -399,6 +405,7 @@ texture = ExtResource( 2 )
 stretch_mode = 4
 
 [node name="ActionContainer" type="GridContainer" parent="BottomContainer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
