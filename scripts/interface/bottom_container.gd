@@ -8,15 +8,7 @@ onready var current: TextureRect = get_node("Current")
 onready var turn_container: HBoxContainer = get_node("TurnContainer")
 onready var action_container: GridContainer = get_node("ActionContainer")
 
-var info_list: Dictionary = {
-	"0": {
-		"type": "ally"
-	},
-	
-	"1": {
-		"type": "enemy"
-	}
-}
+var info_list: Dictionary = {}
 
 func _ready() -> void:
 	for i in info_list.size():
@@ -28,7 +20,8 @@ func _ready() -> void:
 		button.connect("mouse_entered", self, "mouse_interaction", [button, "entered"])
 		
 		
-func update_entity_info() -> void:
+func update_entity_info(list: Dictionary) -> void:
+	info_list = list
 	current.entity_count = info_list.size()
 	change_entity()
 	
@@ -41,7 +34,7 @@ func change_entity() -> void:
 	
 	
 func update_visible_entity() -> void:
-	var current_dict: Dictionary = info_list[str(current.current_index)]
+	var current_dict: Dictionary = info_list[current.current_index]
 	var type: String = current_dict["type"]
 	
 	if type == "ally":

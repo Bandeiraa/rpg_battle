@@ -4,6 +4,10 @@ class_name Character
 onready var stats: Stats = get_node("Stats")
 onready var animation: AnimationPlayer = get_node("Animation")
 
+var info_dict: Dictionary = {
+	"type": "ally"
+}
+
 var target = null
 var attack_damage: int
 

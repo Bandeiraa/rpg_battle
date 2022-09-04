@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://scripts/interface/current_entity.gd"
 }, {
 "base": "Node2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/enemy/enemy.gd"
+}, {
+"base": "Node2D",
 "class": "GameMain",
 "language": "GDScript",
 "path": "res://scripts/management/game_main.gd"
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "BottomContainer": "",
 "Character": "",
 "CurrentEntity": "",
+"Enemy": "",
 "GameMain": "",
 "Stats": ""
 }
