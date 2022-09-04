@@ -44,3 +44,17 @@ func init_health_bar() -> void:
 func init_mana_bar() -> void:
 	mana.max_value = max_mp
 	mana.value = current_mp
+	
+	
+func update_health(new_health: int) -> void:
+	current_hp = new_health
+	health.value = current_hp
+	
+	
+func update_mana() -> void:
+	pass
+	
+	
+func entity_killed() -> void:
+	faceset_rect.modulate.a = 0.3
+	is_alive = false

@@ -111,3 +111,5 @@ special_attack_gap = [ 8, 15 ]
 health = 15
 max_mana = 25
 max_health = 15
+
+[connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]

@@ -72,9 +72,16 @@ func attack(attack_type: String, attack_target) -> void:
 	
 	
 func spawn_projectile() -> void:
-	#target.update_health(attack_damage)
-	pass
+	target.update_health(attack_damage)
 	
 	
-func on_animation_finished(_anim_name: String) -> void:
+func on_animation_finished(anim_name: String) -> void:
+	var action: bool = (
+		anim_name == "normal" or 
+		anim_name == "special"
+	)
+	
+	if action:
+		get_tree().call_group("bottom_container", "change_entity")
+		
 	animation.play("idle")

@@ -35,6 +35,9 @@ func update_index() -> void:
 	if current_index > entity_count - 1:
 		current_index = 0
 		
+	if not current_rect_position_list[current_index][rect_list.OBJECT].is_alive:
+		update_index()
+		
 		
 func interpolate_position() -> void:
 	var _move: bool = tween.interpolate_property(
