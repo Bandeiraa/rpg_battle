@@ -9,6 +9,8 @@ var info_dict: Dictionary = {
 }
 
 var target = null
+var respective_slot = null
+
 var attack_damage: int
 
 export(String) var faceset_path
@@ -19,11 +21,13 @@ func _ready() -> void:
 	info_dict["mp"] = stats.mana
 	info_dict["max_mp"] = stats.max_mana
 	
+	info_dict["self"] = self
 	info_dict["faceset"] = faceset_path
 	
 	
 func update_health(damage: int) -> void:
 	stats.health = clamp(stats.health - damage, 0, stats.max_health)
+	respective_slot.update_health(stats.health)
 	if stats.health == 0:
 		#kill
 		return

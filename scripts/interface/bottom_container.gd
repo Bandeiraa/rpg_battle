@@ -8,7 +8,7 @@ onready var current: TextureRect = get_node("Current")
 onready var turn_container: HBoxContainer = get_node("TurnContainer")
 onready var action_container: GridContainer = get_node("ActionContainer")
 
-var info_list: Dictionary = {}
+var info_list: Array
 
 func _ready() -> void:
 	for button in action_container.get_children():
@@ -17,12 +17,13 @@ func _ready() -> void:
 		button.connect("mouse_entered", self, "mouse_interaction", [button, "entered"])
 		
 		
-func update_entity_info(list: Dictionary) -> void:
+func update_entity_info(list: Array) -> void:
 	info_list = list
 	for i in info_list.size():
-		turn_container.get_child(i).show()
+		turn_container.get_child(i).update_slot(info_list[i])
 		
 	current.entity_count = info_list.size()
+	current.initialize_container()
 	update_visible_entity()
 	
 	
@@ -48,7 +49,7 @@ func update_visible_entity() -> void:
 func on_button_pressed(button: TextureButton) -> void:
 	match button.name:
 		"Attack":
-			pass
+			change_entity()
 			
 		"Defense":
 			pass

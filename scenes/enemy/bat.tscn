@@ -84,6 +84,7 @@ tracks/0/keys = {
 }
 
 [node name="Bat" instance=ExtResource( 1 )]
+faceset_path = "res://assets/enemy/bat/type_1/faceset.png"
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 2 )

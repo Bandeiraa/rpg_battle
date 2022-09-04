@@ -39,10 +39,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/enemy/stats.gd"
 }, {
+"base": "Control",
+"class": "EntitySlot",
+"language": "GDScript",
+"path": "res://scripts/interface/entity_slot.gd"
+}, {
 "base": "Node2D",
 "class": "GameMain",
 "language": "GDScript",
 "path": "res://scripts/management/game_main.gd"
+}, {
+"base": "HBoxContainer",
+"class": "SlotContainer",
+"language": "GDScript",
+"path": "res://scripts/interface/slot_container.gd"
 }, {
 "base": "Node",
 "class": "Stats",
@@ -56,7 +66,9 @@ _global_script_class_icons={
 "CurrentEntity": "",
 "Enemy": "",
 "EnemyStats": "",
+"EntitySlot": "",
 "GameMain": "",
+"SlotContainer": "",
 "Stats": ""
 }
 
