@@ -71,17 +71,33 @@ func attack(attack_type: String, attack_target) -> void:
 	animation.play(attack_type)
 	
 	
-func spawn_projectile() -> void:
+func spawn_projectile(attack_type: String) -> void:
+	var effect_path: String
+	
+	if attack_type == "normal":
+		stats.mana += stats.mana_per_attack
+		respective_slot.update_mana(stats.mana)
+		effect_path = "res://scenes/env/effect_1.tscn"
+		
+	if attack_type == "special":
+		stats.mana = 0
+		respective_slot.update_mana(stats.mana)
+		effect_path = "res://scenes/env/effect_2.tscn"
+		
+	var effect = load(effect_path).instance()
+	get_tree().root.call_deferred("add_child", effect)
+	effect.global_position = target.get_parent().global_position
+	
 	target.update_health(attack_damage)
 	
 	
 func on_animation_finished(anim_name: String) -> void:
-	var action: bool = (
-		anim_name == "normal" or 
-		anim_name == "special"
-	)
-	
-	if action:
+	if anim_name == "hit" and stats.health == 0:
+		respective_slot.entity_killed()
+		queue_free()
+		return
+		
+	if anim_name == "hit":
 		get_tree().call_group("bottom_container", "change_entity")
 		
 	animation.play("idle")

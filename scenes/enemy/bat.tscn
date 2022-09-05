@@ -76,7 +76,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
+"args": [ "normal" ],
 "method": "spawn_projectile"
 } ]
 }
@@ -106,10 +106,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [  ],
+"args": [ "special" ],
 "method": "spawn_projectile"
 }, {
-"args": [  ],
+"args": [ "special" ],
 "method": "spawn_projectile"
 } ]
 }
@@ -142,5 +142,6 @@ special_attack_gap = [ 8, 15 ]
 health = 15
 max_mana = 25
 max_health = 15
+mana_per_attack = 10
 
 [connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]

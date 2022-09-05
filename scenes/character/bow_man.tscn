@@ -75,7 +75,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
+"args": [ "normal" ],
 "method": "spawn_projectile"
 } ]
 }
@@ -94,6 +94,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "special" ],
+"method": "spawn_projectile"
+} ]
 }
 
 [node name="BowMan" instance=ExtResource( 1 )]
@@ -114,7 +128,9 @@ anims/normal = SubResource( 3 )
 anims/special = SubResource( 4 )
 
 [node name="Stats" parent="." index="2"]
-normal_attack_gap = [ 1, 5 ]
-health = 8
+normal_attack_gap = [ 5, 15 ]
+special_attack_gap = [ 25, 40 ]
+health = 55
 max_mana = 30
-max_health = 8
+max_health = 55
+mana_per_attack = 10

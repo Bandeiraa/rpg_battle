@@ -39,13 +39,16 @@ func update_visible_entity() -> void:
 		
 	if type == "enemy":
 		action_container.hide()
+		
 		#attack cooldown, lol
 		yield(get_tree().create_timer(1.0), "timeout")
+		
 		var attacker_slot = current.get_current_attacker()
 		var attacker = attacker_slot.target
-		attacker.can_attack = true
-		
-		
+		if is_instance_valid(attacker):
+			attacker.can_attack = true
+			
+			
 func on_button_pressed(button: TextureButton) -> void:
 	match button.name:
 		"Attack":

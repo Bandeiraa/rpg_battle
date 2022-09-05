@@ -51,7 +51,7 @@ func attack() -> void:
 		stats.normal_attack_gap.max()
 	)
 	
-	if stats.mana == stats.max_mana:
+	if stats.mana >= stats.max_mana:
 		attack_name = "special"
 		
 		attack_damage = rng.randi_range(
@@ -59,13 +59,26 @@ func attack() -> void:
 			stats.special_attack_gap.max()
 		)
 		
-		stats.mana = 0
-		
-	#stats.mana += 3
 	animation.play(attack_name)
 	
 	
-func spawn_projectile() -> void:
+func spawn_projectile(attack_type: String) -> void:
+	var effect_path: String
+	
+	if attack_type == "normal":
+		stats.mana += stats.mana_per_attack
+		respective_slot.update_mana(stats.mana)
+		effect_path = "res://scenes/env/effect_1.tscn"
+		
+	if attack_type == "special":
+		stats.mana = 0
+		respective_slot.update_mana(stats.mana)
+		effect_path = "res://scenes/env/effect_2.tscn"
+		
+	var effect = load(effect_path).instance()
+	get_tree().root.call_deferred("add_child", effect)
+	effect.global_position = target.get_parent().global_position
+	
 	target.update_health(attack_damage)
 	
 	
@@ -87,16 +100,12 @@ func on_mouse_exited() -> void:
 	
 	
 func on_animation_finished(anim_name: String) -> void:
-	var action: bool = (
-		anim_name == "normal" or
-		anim_name == "special"
-	)
-	
-	if action:
-		get_tree().call_group("bottom_container", "change_entity")
-		
 	if anim_name == "hit" and stats.health == 0:
 		respective_slot.entity_killed()
 		queue_free()
+		return
+		
+	if anim_name == "hit":
+		get_tree().call_group("bottom_container", "change_entity")
 		
 	animation.play("idle")

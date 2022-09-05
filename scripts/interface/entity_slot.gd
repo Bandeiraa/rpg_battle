@@ -51,10 +51,13 @@ func update_health(new_health: int) -> void:
 	health.value = current_hp
 	
 	
-func update_mana() -> void:
-	pass
+func update_mana(new_mana: int) -> void:
+	current_mp = new_mana
+	mana.value = current_mp
 	
 	
 func entity_killed() -> void:
 	faceset_rect.modulate.a = 0.3
 	is_alive = false
+	
+	get_tree().call_group("bottom_container", "change_entity")
