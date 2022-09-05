@@ -50,14 +50,17 @@ func update_visible_entity() -> void:
 			
 			
 func on_button_pressed(button: TextureButton) -> void:
+	var attacker_slot = current.get_current_attacker()
+	var attacker = attacker_slot.target
+	
 	match button.name:
 		"Attack":
-			var attacker_slot = current.get_current_attacker()
-			var attacker = attacker_slot.target
 			attacker.can_attack = true
 			
 		"Defense":
-			pass
+			change_entity()
+			attacker.can_defend = true
+			attacker.can_attack = false
 			
 		"Special":
 			pass
