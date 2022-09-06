@@ -35,10 +35,10 @@ func update_visible_entity() -> void:
 	var type: String = current_dict["type"]
 	
 	if type == "ally":
-		action_container.show()
+		action_container.update_container(type, current_dict)
 		
 	if type == "enemy":
-		action_container.hide()
+		action_container.update_container(type, current_dict)
 		
 		#attack cooldown, lol
 		yield(get_tree().create_timer(1.0), "timeout")
@@ -63,18 +63,16 @@ func on_button_pressed(button: TextureButton) -> void:
 			attacker.can_attack = false
 			
 		"Special":
-			pass
+			attacker.can_special_attack = true
 			
 		"Run":
 			pass
 			
 			
-func disable_buttons() -> void:
-	for button in action_container.get_children():
-		button.disabled = true
-		
-		
 func mouse_interaction(button: TextureButton, type: String) -> void:
+	if button.disabled:
+		return
+		
 	match type:
 		"entered":
 			button.modulate.a = 0.5

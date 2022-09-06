@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GridContainer",
+"class": "ActionContainer",
+"language": "GDScript",
+"path": "res://scripts/interface/action_container.gd"
+}, {
 "base": "Entity",
 "class": "AllyEntity",
 "language": "GDScript",
@@ -75,6 +80,7 @@ _global_script_classes=[ {
 "path": "res://scripts/combat/stats.gd"
 } ]
 _global_script_class_icons={
+"ActionContainer": "",
 "AllyEntity": "",
 "Background": "",
 "BottomContainer": "",

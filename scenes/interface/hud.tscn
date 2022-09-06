@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/interface/black-strip.png" type="Texture" id=1]
 [ext_resource path="res://assets/character/bow_man/type_1/faceset.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/interface/action/defense_disabled.png" type="Texture" id=17]
 [ext_resource path="res://assets/interface/action/special_disabled.png" type="Texture" id=18]
 [ext_resource path="res://assets/interface/action/run_disabled.png" type="Texture" id=19]
+[ext_resource path="res://scripts/interface/action_container.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -428,6 +429,7 @@ margin_top = -42.0
 margin_right = 42.0
 margin_bottom = 42.0
 columns = 2
+script = ExtResource( 20 )
 
 [node name="Attack" type="TextureButton" parent="BottomContainer/ActionContainer"]
 margin_right = 40.0
