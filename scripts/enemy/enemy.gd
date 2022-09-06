@@ -3,6 +3,7 @@ class_name Enemy
 
 onready var stats: Node = get_node("Stats")
 onready var animation: AnimationPlayer = get_node("Animation")
+onready var health_bar_container: TextureRect = get_node("BarBackground")
 
 var can_attack: bool = false
 
@@ -28,6 +29,8 @@ func _ready() -> void:
 	info_dict["self"] = self
 	info_dict["faceset"] = faceset_path
 	
+	health_bar_container.init_container(stats.max_health)
+	
 	
 func _process(_delta: float) -> void:
 	if not can_attack:
@@ -44,6 +47,9 @@ func attack() -> void:
 	rng.randomize()
 	
 	var target_list: Array = global_data.ally_list
+	if target_list.empty():
+		return
+		
 	target = target_list[randi() % target_list.size()]
 	
 	attack_damage = rng.randi_range(
@@ -85,6 +91,7 @@ func spawn_projectile(attack_type: String) -> void:
 func update_health(damage: int) -> void:
 	stats.health = clamp(stats.health - damage, 0, stats.max_health)
 	respective_slot.update_health(stats.health)
+	health_bar_container.update_bar(stats.health)
 	animation.play("hit")
 	
 	

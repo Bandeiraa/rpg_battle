@@ -3,6 +3,7 @@ class_name Character
 
 onready var stats: Stats = get_node("Stats")
 onready var animation: AnimationPlayer = get_node("Animation")
+onready var health_bar_container: TextureRect = get_node("BarBackground")
 
 var info_dict: Dictionary = {
 	"type": "ally"
@@ -26,6 +27,8 @@ func _ready() -> void:
 	
 	info_dict["self"] = self
 	info_dict["faceset"] = faceset_path
+	
+	health_bar_container.init_container(stats.max_health)
 	
 	
 func _process(_delta: float) -> void:
@@ -51,6 +54,8 @@ func update_health(damage: int) -> void:
 		stats.health = clamp(stats.health - damage / 2, 0, stats.max_health)
 		
 	respective_slot.update_health(stats.health)
+	health_bar_container.update_bar(stats.health)
+	
 	if stats.health == 0:
 		#kill
 		return
@@ -103,6 +108,8 @@ func spawn_projectile(attack_type: String) -> void:
 	
 func on_animation_finished(anim_name: String) -> void:
 	if anim_name == "hit" and stats.health == 0:
+		var index_in_list: int = global_data.ally_list.find(self)
+		global_data.ally_list.remove(index_in_list)
 		respective_slot.entity_killed()
 		queue_free()
 		return
