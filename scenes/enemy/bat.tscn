@@ -147,5 +147,3 @@ mana_per_attack = 10
 [node name="BarBackground" parent="." index="3"]
 margin_top = -15.0
 margin_bottom = -8.0
-
-[connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]

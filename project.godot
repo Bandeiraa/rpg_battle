@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Entity",
+"class": "AllyEntity",
+"language": "GDScript",
+"path": "res://scripts/combat/ally_entity.gd"
+}, {
 "base": "CanvasLayer",
 "class": "Background",
 "language": "GDScript",
@@ -18,11 +23,6 @@ _global_script_classes=[ {
 "class": "BottomContainer",
 "language": "GDScript",
 "path": "res://scripts/interface/bottom_container.gd"
-}, {
-"base": "Control",
-"class": "Character",
-"language": "GDScript",
-"path": "res://scripts/character/character.gd"
 }, {
 "base": "TextureRect",
 "class": "CurrentEntity",
@@ -34,15 +34,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/management/effect.gd"
 }, {
-"base": "Control",
-"class": "Enemy",
+"base": "Entity",
+"class": "EnemyEntity",
 "language": "GDScript",
-"path": "res://scripts/enemy/enemy.gd"
+"path": "res://scripts/combat/enemy_entity.gd"
 }, {
-"base": "Node",
-"class": "EnemyStats",
+"base": "Control",
+"class": "Entity",
 "language": "GDScript",
-"path": "res://scripts/enemy/stats.gd"
+"path": "res://scripts/combat/entity.gd"
 }, {
 "base": "Control",
 "class": "EntitySlot",
@@ -72,16 +72,16 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Stats",
 "language": "GDScript",
-"path": "res://scripts/character/stats.gd"
+"path": "res://scripts/combat/stats.gd"
 } ]
 _global_script_class_icons={
+"AllyEntity": "",
 "Background": "",
 "BottomContainer": "",
-"Character": "",
 "CurrentEntity": "",
 "Effect": "",
-"Enemy": "",
-"EnemyStats": "",
+"EnemyEntity": "",
+"Entity": "",
 "EntitySlot": "",
 "GameMain": "",
 "GlobalData": "",
