@@ -16,6 +16,8 @@ func _ready() -> void:
 		
 		
 func update_entity_info(list: Array) -> void:
+	show()
+	
 	info_list = list
 	for i in info_list.size():
 		turn_container.get_child(i).update_slot(info_list[i])

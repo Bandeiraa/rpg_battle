@@ -20,6 +20,11 @@ func _ready() -> void:
 	spawn_enemy()
 	
 	info_list.shuffle()
+	
+	var _start: bool = transition_screen.connect("start_scene", self, "start_scene")
+	
+	
+func start_scene() -> void:
 	get_tree().call_group("bottom_container", "update_entity_info", info_list)
 	
 	
@@ -57,8 +62,6 @@ func on_entity_killed(entity: String) -> void:
 			enemy_count -= 1
 			
 			
-	if ally_count == 0:
-		get_tree().paused = true
-		
-	if enemy_count == 0:
-		get_tree().paused = true
+	if ally_count == 0 or enemy_count == 0:
+		global_data.reset()
+		transition_screen.fade_in("res://scenes/management/game_main.tscn")
