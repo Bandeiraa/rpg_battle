@@ -1,6 +1,8 @@
 extends Control
 class_name Entity
 
+signal killed
+
 onready var stats: Node = get_node("Stats")
 onready var animation: AnimationPlayer = get_node("Animation")
 onready var health_bar_container: TextureRect = get_node("BarBackground")
@@ -72,4 +74,5 @@ func on_animation_finished(anim_name: String) -> void:
 	
 	
 func free_list_reference() -> void:
+	emit_signal("killed", class_type)
 	queue_free()

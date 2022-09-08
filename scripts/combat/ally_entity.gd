@@ -70,4 +70,5 @@ func update_health(damage: int) -> void:
 func free_list_reference() -> void:
 	var index_in_list: int = global_data.ally_list.find(self)
 	global_data.ally_list.remove(index_in_list)
+	emit_signal("killed", class_type)
 	queue_free()
