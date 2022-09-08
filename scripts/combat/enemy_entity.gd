@@ -38,6 +38,7 @@ func attack() -> void:
 	
 	
 func update_health(damage: int) -> void:
+	get_tree().call_group("level_camera", "shake", 0.25, 0.5)
 	stats.health = clamp(stats.health - damage, 0, stats.max_health)
 	respective_slot.update_health(stats.health)
 	health_bar_container.update_bar(stats.health)

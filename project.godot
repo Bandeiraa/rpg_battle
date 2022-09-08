@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/combat/health_bar_container.gd"
 }, {
+"base": "Camera2D",
+"class": "LevelCamera",
+"language": "GDScript",
+"path": "res://scripts/management/level_camera.gd"
+}, {
 "base": "HBoxContainer",
 "class": "SlotContainer",
 "language": "GDScript",
@@ -97,6 +102,7 @@ _global_script_class_icons={
 "GameMain": "",
 "GlobalData": "",
 "HealthBarContainer": "",
+"LevelCamera": "",
 "SlotContainer": "",
 "Stats": "",
 "Transition": ""

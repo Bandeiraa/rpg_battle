@@ -54,11 +54,13 @@ func attack(attack_type: String, attack_target) -> void:
 	
 func update_health(damage: int) -> void:
 	if not can_defend:
+		get_tree().call_group("level_camera", "shake", 0.25, 1.5)
 		stats.health = clamp(stats.health - damage, 0, stats.max_health)
 		
 	if can_defend:
 		can_defend = false
 		# warning-ignore:integer_division
+		get_tree().call_group("level_camera", "shake", 0.25, 0.5)
 		stats.health = clamp(stats.health - damage / 2, 0, stats.max_health)
 		
 	respective_slot.update_health(stats.health)
