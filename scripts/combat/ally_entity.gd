@@ -6,7 +6,6 @@ var can_special_attack: bool = false
 
 func _process(_delta: float) -> void:
 	if not can_attack and not can_special_attack:
-		#global_data.seeking_target = false
 		return
 		
 	target = global_data.target

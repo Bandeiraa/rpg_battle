@@ -60,9 +60,10 @@ func on_button_pressed(button: TextureButton) -> void:
 			attacker.can_attack = true
 			
 		"Defense":
-			change_entity()
-			attacker.can_defend = true
+			global_data.seeking_target = false
 			attacker.can_attack = false
+			attacker.can_defend = true
+			change_entity()
 			
 		"Special":
 			attacker.can_special_attack = true
