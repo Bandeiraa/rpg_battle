@@ -65,6 +65,7 @@ func update_health(damage: int) -> void:
 	respective_slot.update_health(stats.health)
 	health_bar_container.update_bar(stats.health)
 	
+	spawn_damage_popup("decrease", str(damage))
 	animation.play("hit")
 	
 	

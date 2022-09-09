@@ -44,6 +44,8 @@ func update_health(damage: int) -> void:
 	health_bar_container.update_bar(stats.health)
 	animation.play("hit")
 	
+	spawn_damage_popup("decrease", str(damage))
+	
 	
 func on_mouse_entered() -> void:
 	if global_data.seeking_target:

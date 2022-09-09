@@ -19,6 +19,9 @@ var info_dict: Dictionary = {}
 export(String) var class_type #ally/enemy
 export(String) var faceset_path
 
+export(Vector2) var spawn_position
+export(PackedScene) var damage_popup
+
 func _ready() -> void:
 	randomize()
 	populate_info_dict()
@@ -71,6 +74,16 @@ func on_animation_finished(anim_name: String) -> void:
 		get_tree().call_group("bottom_container", "change_entity")
 		
 	animation.play("idle")
+	
+	
+func spawn_damage_popup(type: String, value: String) -> void:
+	var damage_popup_to_instance = damage_popup.instance()
+	
+	damage_popup_to_instance.rect_global_position = rect_global_position + spawn_position
+	damage_popup_to_instance.type = type
+	damage_popup_to_instance.value = value
+	
+	get_tree().root.call_deferred("add_child", damage_popup_to_instance)
 	
 	
 func free_list_reference() -> void:

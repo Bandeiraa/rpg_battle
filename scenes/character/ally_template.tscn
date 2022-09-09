@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/combat/ally_entity.gd" type="Script" id=1]
 [ext_resource path="res://scripts/combat/stats.gd" type="Script" id=2]
 [ext_resource path="res://scenes/combat/health_bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/combat/damage_popup.tscn" type="PackedScene" id=4]
 
 [node name="AllyTemplate" type="Control"]
 script = ExtResource( 1 )
 class_type = "ally"
+spawn_position = Vector2( 0, -80 )
+damage_popup = ExtResource( 4 )
 
 [node name="Texture" type="Sprite" parent="."]
 
@@ -16,3 +19,5 @@ class_type = "ally"
 script = ExtResource( 2 )
 
 [node name="BarBackground" parent="." instance=ExtResource( 3 )]
+
+[node name="DamagePopup" parent="." instance=ExtResource( 4 )]

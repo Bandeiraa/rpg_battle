@@ -134,3 +134,9 @@ health = 55
 max_mana = 30
 max_health = 55
 mana_per_attack = 10
+
+[node name="DamagePopup" parent="." index="4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5

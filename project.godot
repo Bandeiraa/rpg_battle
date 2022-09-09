@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/interface/current_entity.gd"
 }, {
+"base": "Control",
+"class": "DamagePopup",
+"language": "GDScript",
+"path": "res://scripts/combat/damage_popup.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "Effect",
 "language": "GDScript",
@@ -95,6 +100,7 @@ _global_script_class_icons={
 "Background": "",
 "BottomContainer": "",
 "CurrentEntity": "",
+"DamagePopup": "",
 "Effect": "",
 "EnemyEntity": "",
 "Entity": "",
