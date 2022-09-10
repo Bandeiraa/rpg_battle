@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy_template.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/enemy/bat/type_1/sprite-sheet-2-121x89.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemy/bat/type_1/sprite_sheet.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=2]
 length = 0.001

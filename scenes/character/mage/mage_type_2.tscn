@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/character/mage/base.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/character/mage/type_2/sprite-sheet-b-151x100.png" type="Texture" id=2]
+[ext_resource path="res://assets/character/mage/type_2/sprite_sheet.png" type="Texture" id=2]
 
 [node name="MageType2" instance=ExtResource( 1 )]
-faceset_path = "res://assets/character/mage/type_2/faceset-b.png"
+faceset_path = "res://assets/character/mage/type_2/faceset.png"
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 2 )

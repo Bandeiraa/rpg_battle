@@ -61,7 +61,6 @@ func spawn_projectile(attack_type: String) -> void:
 	var effect = load(effect_path).instance()
 	get_tree().root.call_deferred("add_child", effect)
 	effect.global_position = target.get_parent().global_position
-	
 	target.update_health(attack_damage)
 	
 	
