@@ -20,7 +20,9 @@ export(String) var class_type #ally/enemy
 export(String) var faceset_path
 
 export(Vector2) var spawn_position
+
 export(PackedScene) var damage_popup
+export(PackedScene) var sound_effect
 
 func _ready() -> void:
 	randomize()
@@ -66,6 +68,7 @@ func update_health(_damage: int) -> void:
 	
 func on_animation_finished(anim_name: String) -> void:
 	if anim_name == "hit" and stats.health == 0:
+		spawn_sound_effect("res://assets/sound/17.ogg")
 		respective_slot.entity_killed()
 		free_list_reference()
 		return
@@ -84,6 +87,12 @@ func spawn_damage_popup(type: String, value: String) -> void:
 	damage_popup_to_instance.value = value
 	
 	get_tree().root.call_deferred("add_child", damage_popup_to_instance)
+	
+	
+func spawn_sound_effect(sfx_path: String) -> void:
+	var sfx = sound_effect.instance()
+	get_tree().root.call_deferred("add_child", sfx)
+	sfx.stream_sfx(sfx_path)
 	
 	
 func free_list_reference() -> void:

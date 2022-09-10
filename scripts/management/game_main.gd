@@ -25,6 +25,7 @@ func _ready() -> void:
 	
 	
 func start_scene() -> void:
+	background_music.stream_random_music()
 	get_tree().call_group("bottom_container", "update_entity_info", info_list)
 	
 	

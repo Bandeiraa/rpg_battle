@@ -8,7 +8,6 @@ var base_path: String = "res://assets/music/"
 
 func _ready() -> void:
 	randomize()
-	stream_random_music()
 	
 	
 func stream_random_music() -> void:

@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/combat/enemy_entity.gd" type="Script" id=1]
 [ext_resource path="res://scripts/combat/stats.gd" type="Script" id=2]
 [ext_resource path="res://scenes/combat/health_bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/combat/damage_popup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/env/sound_effect.tscn" type="PackedScene" id=5]
 
 [node name="EnemyTemplate" type="Control"]
 script = ExtResource( 1 )
 class_type = "enemy"
 spawn_position = Vector2( 45, -30 )
 damage_popup = ExtResource( 4 )
+sound_effect = ExtResource( 5 )
 
 [node name="Texture" type="Sprite" parent="."]
 

@@ -45,6 +45,7 @@ func update_health(damage: int) -> void:
 	animation.play("hit")
 	
 	spawn_damage_popup("decrease", str(damage))
+	spawn_sound_effect("res://assets/sound/12.ogg")
 	
 	
 func on_mouse_entered() -> void:
