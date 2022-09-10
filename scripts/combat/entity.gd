@@ -19,6 +19,9 @@ var info_dict: Dictionary = {}
 export(String) var class_type #ally/enemy
 export(String) var faceset_path
 
+export(String) var normal_effect_path
+export(String) var special_effect_path
+
 export(Vector2) var spawn_position
 
 export(PackedScene) var damage_popup
@@ -48,12 +51,12 @@ func spawn_projectile(attack_type: String) -> void:
 	if attack_type == "normal":
 		stats.mana += stats.mana_per_attack
 		respective_slot.update_mana(stats.mana)
-		effect_path = "res://scenes/env/effect_1.tscn"
+		effect_path = normal_effect_path
 		
 	if attack_type == "special":
 		stats.mana = 0
 		respective_slot.update_mana(stats.mana)
-		effect_path = "res://scenes/env/effect_2.tscn"
+		effect_path = special_effect_path
 		
 	var effect = load(effect_path).instance()
 	get_tree().root.call_deferred("add_child", effect)

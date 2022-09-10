@@ -112,6 +112,8 @@ tracks/1/keys = {
 
 [node name="BowMan" instance=ExtResource( 1 )]
 faceset_path = "res://assets/character/bow_man/type_1/faceset.png"
+normal_effect_path = "res://scenes/env/effect_5.tscn"
+special_effect_path = "res://scenes/env/effect_2.tscn"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( -18, -44 )

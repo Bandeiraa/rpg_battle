@@ -113,6 +113,8 @@ tracks/1/keys = {
 
 [node name="Mage" instance=ExtResource( 1 )]
 faceset_path = "res://assets/character/mage/type_1/faceset.png"
+normal_effect_path = "res://scenes/env/effect_3.tscn"
+special_effect_path = "res://scenes/env/effect_6.tscn"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( -19, 0 )
